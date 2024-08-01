@@ -7,6 +7,7 @@ import cz.cuni.gamedev.nail123.roguelike.entities.items.Dog
 import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Chest
 import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Orc
 import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Rat
+import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Snake
 import cz.cuni.gamedev.nail123.roguelike.entities.objects.Stairs
 import cz.cuni.gamedev.nail123.roguelike.entities.unplacable.FogOfWar
 import cz.cuni.gamedev.nail123.roguelike.mechanics.Pathfinding
@@ -48,6 +49,11 @@ class WaveFunctionCollapsedWorld: DungeonWorld() {
         //add orcs
         repeat(currentLevel - 1) {
             area.addAtEmptyPosition(Orc(currentLevel), Position3D.defaultPosition(), area.size)
+        }
+
+        //add snake
+        repeat(currentLevel-3) {
+            area.addAtEmptyPosition(Snake(currentLevel), Position3D.defaultPosition(), area.size)
         }
 
         //add chests

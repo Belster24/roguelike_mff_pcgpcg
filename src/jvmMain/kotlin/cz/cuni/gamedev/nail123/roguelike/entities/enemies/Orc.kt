@@ -34,13 +34,13 @@ class Orc(val currentLevel: Int): Enemy(GameTiles.ORC), HasSmell {
 
         if(randomNumber == 1)
         {
-            this.block.entities.add(Sword(4))
+            this.block.entities.add(Sword(5+currentLevel))
         }
         else if(randomNumber == 2)
         {
-            this.block.entities.add(HealthPotion(8))
+            this.block.entities.add(HealthPotion(8+currentLevel))
         }else{
-            this.block.entities.add(Armor(8))
+            this.block.entities.add(Armor(2+currentLevel))
         }
 
     }

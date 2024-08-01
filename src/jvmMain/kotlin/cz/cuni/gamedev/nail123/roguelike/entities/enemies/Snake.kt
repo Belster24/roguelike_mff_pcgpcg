@@ -9,15 +9,15 @@ import cz.cuni.gamedev.nail123.roguelike.mechanics.goBlindlyTowards
 import cz.cuni.gamedev.nail123.roguelike.tiles.GameTiles
 import kotlin.random.Random
 
-class Rat(val currentLevel: Int): Enemy(GameTiles.RAT), HasSmell {
+class Snake(val currentLevel: Int): Enemy(GameTiles.SNAKE), HasSmell {
     override val blocksMovement = true
     override val blocksVision = false
     override val smellingRadius = 7
 
     override val maxHitpoints = 10
-    override var hitpoints = 6+currentLevel
-    override var attack = 3
-    override var defense = 0+currentLevel
+    override var hitpoints = 3+currentLevel
+    override var attack = 8+currentLevel
+    override var defense = 1+currentLevel
 
     override fun update() {
         if (Pathfinding.chebyshev(position, area.player.position) <= smellingRadius) {
@@ -38,9 +38,9 @@ class Rat(val currentLevel: Int): Enemy(GameTiles.RAT), HasSmell {
         }
         else if(randomNumber == 2)
         {
-            this.block.entities.add(HealthPotion(3+currentLevel))
+            this.block.entities.add(HealthPotion(9+currentLevel))
         }else{
-            this.block.entities.add(Armor(1+currentLevel))
+            this.block.entities.add(Armor(8+currentLevel))
         }
 
     }
