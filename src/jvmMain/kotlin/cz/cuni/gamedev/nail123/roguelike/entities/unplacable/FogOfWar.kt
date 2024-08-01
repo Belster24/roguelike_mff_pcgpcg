@@ -16,8 +16,11 @@ class FogOfWar: GameEntity() {
     }
 
     override fun update() {
+
         area.player.visiblePositions().forEach {
             area[it]?.top = GameTiles.EMPTY
         }
+
+
     }
 }

@@ -1,7 +1,9 @@
 package cz.cuni.gamedev.nail123.roguelike.gui.actions
 
+import cz.cuni.gamedev.nail123.roguelike.actions.Delete
 import cz.cuni.gamedev.nail123.roguelike.actions.Drop
 import cz.cuni.gamedev.nail123.roguelike.actions.ToggleEquip
+import cz.cuni.gamedev.nail123.roguelike.entities.attributes.Inventory
 import cz.cuni.gamedev.nail123.roguelike.events.InventoryUpdated
 import cz.cuni.gamedev.nail123.roguelike.gui.controls.KeyboardConfig
 import cz.cuni.gamedev.nail123.roguelike.gui.views.PlayView
@@ -33,6 +35,7 @@ class ShowInventory: GuiAction() {
             KeyCode.KEY_W to moveUp,
             KeyCode.KEY_S to moveDown,
             KeyCode.KEY_E to ToggleEquip(0),
+            KeyCode.KEY_X to Delete(0),
             KeyCode.KEY_D to Drop(0),
             KeyCode.KEY_I to ContextAction { deactivate() }
         ))
@@ -43,6 +46,8 @@ class ShowInventory: GuiAction() {
             playView.inventoryFragment.selectedIndex = cursorPosition
             InventoryUpdated(inventory).emit()
         }
+
+
 
         fun activate() {
             playView.keyboardControls.config = config

@@ -2,9 +2,11 @@ package cz.cuni.gamedev.nail123.roguelike.world.worlds
 
 import cz.cuni.gamedev.nail123.roguelike.GameConfig
 import cz.cuni.gamedev.nail123.roguelike.blocks.Floor
-import cz.cuni.gamedev.nail123.roguelike.blocks.GameBlock
 import cz.cuni.gamedev.nail123.roguelike.blocks.Wall
-import cz.cuni.gamedev.nail123.roguelike.entities.objects.Door
+import cz.cuni.gamedev.nail123.roguelike.entities.items.Dog
+import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Chest
+import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Orc
+import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Rat
 import cz.cuni.gamedev.nail123.roguelike.entities.objects.Stairs
 import cz.cuni.gamedev.nail123.roguelike.entities.unplacable.FogOfWar
 import cz.cuni.gamedev.nail123.roguelike.mechanics.Pathfinding
@@ -37,6 +39,24 @@ class WaveFunctionCollapsedWorld: DungeonWorld() {
         ensureConnectivity(area, staircasePosition)
         removeCycles(area)
 
+
+        //add rats
+        repeat(currentLevel + 1) {
+            area.addAtEmptyPosition(Rat(currentLevel), Position3D.defaultPosition(), area.size)
+        }
+
+        //add orcs
+        repeat(currentLevel - 1) {
+            area.addAtEmptyPosition(Orc(currentLevel), Position3D.defaultPosition(), area.size)
+        }
+
+        //add chests
+        repeat(currentLevel) {
+            area.addAtEmptyPosition(Chest(currentLevel), Position3D.defaultPosition(), area.size)
+        }
+       /* if(currentLevel >= 5) {
+            area.addAtEmptyPosition(Dog(), Position3D.defaultPosition(), area.size)
+        }*/
         return area.build()
     }
 

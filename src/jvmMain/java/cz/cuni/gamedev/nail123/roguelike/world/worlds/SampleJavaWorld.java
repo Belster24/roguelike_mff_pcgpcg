@@ -41,7 +41,7 @@ public class SampleJavaWorld extends World {
         );
 
         for (int i = 0; i <= currentLevel; ++i) {
-            areaBuilder.addAtEmptyPosition(new Rat(), Position3D.defaultPosition(), areaBuilder.getSize());
+            areaBuilder.addAtEmptyPosition(new Rat(currentLevel), Position3D.defaultPosition(), areaBuilder.getSize());
         }
 
         // Build it into a full Area

@@ -9,15 +9,15 @@ import cz.cuni.gamedev.nail123.roguelike.mechanics.goBlindlyTowards
 import cz.cuni.gamedev.nail123.roguelike.tiles.GameTiles
 import kotlin.random.Random
 
-class Rat(val currentLevel: Int): Enemy(GameTiles.RAT), HasSmell {
+class Orc(val currentLevel: Int): Enemy(GameTiles.ORC), HasSmell {
     override val blocksMovement = true
     override val blocksVision = false
     override val smellingRadius = 7
 
     override val maxHitpoints = 10
-    override var hitpoints = 6+currentLevel
-    override var attack = 3
-    override var defense = 0+currentLevel
+    override var hitpoints = 6
+    override var attack = 5+currentLevel
+    override var defense = 1+currentLevel
 
     override fun update() {
         if (Pathfinding.chebyshev(position, area.player.position) <= smellingRadius) {
@@ -34,13 +34,13 @@ class Rat(val currentLevel: Int): Enemy(GameTiles.RAT), HasSmell {
 
         if(randomNumber == 1)
         {
-            this.block.entities.add(Sword(2+currentLevel))
+            this.block.entities.add(Sword(4))
         }
         else if(randomNumber == 2)
         {
-            this.block.entities.add(HealthPotion(5+currentLevel))
+            this.block.entities.add(HealthPotion(8))
         }else{
-            this.block.entities.add(Armor(4+currentLevel))
+            this.block.entities.add(Armor(8))
         }
 
     }
