@@ -19,7 +19,7 @@ class Chest(val currentlevel: Int): Enemy(GameTiles.CHEST), HasSmell {
     override var hitpoints = 6
     override var attack = 0
     override var defense = 0
-
+    // added chest to drop better items than from enemies to boost it
     override fun update() {
         if (Pathfinding.chebyshev(position, area.player.position) <= smellingRadius) {
             goBlindlyTowards(area.player.position)

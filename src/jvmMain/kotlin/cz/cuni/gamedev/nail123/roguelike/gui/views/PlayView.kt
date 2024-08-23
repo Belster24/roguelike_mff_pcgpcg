@@ -29,6 +29,8 @@ class PlayView(val tileGrid: TileGrid, val game: Game = Game()): BaseView(tileGr
     val inventoryFragment = createInventoryFragment()
 
     override fun onDock() {
+
+
         val sidebar = Components.panel()
                 .withSize(GameConfig.SIDEBAR_WIDTH, GameConfig.WINDOW_HEIGHT)
                 .withDecorations(
@@ -38,6 +40,8 @@ class PlayView(val tileGrid: TileGrid, val game: Game = Game()): BaseView(tileGr
 
         sidebar.addFragment(statsFragment)
         sidebar.addFragment(inventoryFragment)
+
+
 
         val logArea = Components.logArea()
                 .withSize(GameConfig.WINDOW_WIDTH - GameConfig.SIDEBAR_WIDTH, GameConfig.LOG_AREA_HEIGHT)

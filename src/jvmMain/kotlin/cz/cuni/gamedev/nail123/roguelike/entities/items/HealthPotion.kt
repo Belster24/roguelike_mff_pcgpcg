@@ -4,6 +4,7 @@ import cz.cuni.gamedev.nail123.roguelike.entities.Player
 import cz.cuni.gamedev.nail123.roguelike.entities.attributes.HasInventory
 import cz.cuni.gamedev.nail123.roguelike.tiles.GameTiles
 
+//added health potion to boost HP
 class HealthPotion(val healthPower: Int): Consumable(GameTiles.HEALTH_P) {
     override fun onEquip(character: HasInventory) {
         if (character is Player) {

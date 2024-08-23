@@ -18,7 +18,7 @@ class Rat(val currentLevel: Int): Enemy(GameTiles.RAT), HasSmell {
     override var hitpoints = 6+currentLevel
     override var attack = 3
     override var defense = 0+currentLevel
-
+    // updated rat and give him different HP and defense based on lvl and more items to drop
     override fun update() {
         if (Pathfinding.chebyshev(position, area.player.position) <= smellingRadius) {
             goBlindlyTowards(area.player.position)
@@ -27,7 +27,7 @@ class Rat(val currentLevel: Int): Enemy(GameTiles.RAT), HasSmell {
 
     override fun die() {
         super.die()
-        // Drop an item ((sword))
+        // Drop an item ((sword, Health potion, armor))
         val random = Random.Default
 
         val randomNumber = random.nextInt(3)

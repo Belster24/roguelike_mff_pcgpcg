@@ -18,7 +18,7 @@ class Orc(val currentLevel: Int): Enemy(GameTiles.ORC), HasSmell {
     override var hitpoints = 6
     override var attack = 5+currentLevel
     override var defense = 1+currentLevel
-
+    // added orc based from the rat and give him different attack and defense based on lvl, also more items to drop
     override fun update() {
         if (Pathfinding.chebyshev(position, area.player.position) <= smellingRadius) {
             goBlindlyTowards(area.player.position)
@@ -27,7 +27,7 @@ class Orc(val currentLevel: Int): Enemy(GameTiles.ORC), HasSmell {
 
     override fun die() {
         super.die()
-        // Drop an item ((sword))
+        // Drop an item ((sword, Health potion, armor))
         val random = Random.Default
 
         val randomNumber = random.nextInt(3)

@@ -6,7 +6,7 @@ import org.hexworks.zircon.api.data.Tile
 
 abstract class Consumable(tile: Tile): Item(tile) {
     override fun isEquipable(character: HasInventory): Inventory.EquipResult {
-
+    //added consumable that can be stucked to boost some stat
         return Inventory.EquipResult.Success
     }
 }

@@ -18,7 +18,7 @@ class Snake(val currentLevel: Int): Enemy(GameTiles.SNAKE), HasSmell {
     override var hitpoints = 3+currentLevel
     override var attack = 8+currentLevel
     override var defense = 1+currentLevel
-
+    // added snake based from the rat and give him different HP, attack and defense and based on lvl
     override fun update() {
         if (Pathfinding.chebyshev(position, area.player.position) <= smellingRadius) {
             goBlindlyTowards(area.player.position)
@@ -27,7 +27,7 @@ class Snake(val currentLevel: Int): Enemy(GameTiles.SNAKE), HasSmell {
 
     override fun die() {
         super.die()
-        // Drop an item ((sword))
+        // Drop an item ((sword, Health potion, armor))
         val random = Random.Default
 
         val randomNumber = random.nextInt(3)

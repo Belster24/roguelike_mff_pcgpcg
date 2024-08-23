@@ -174,7 +174,7 @@ class WaveFunctionCollapsedWorld: DungeonWorld() {
     private fun removeEdge(area: WFCAreaBuilder, pos1: Position3D, pos2: Position3D) {
         // Remove an edge between pos1 and pos2
         // Simply turning one of the positions into a wall should break the cycle
-        area.blocks[pos1] = Wall() // Turn pos1 into a wall
+        area.blocks[pos1] = Wall()
     }
 
 }

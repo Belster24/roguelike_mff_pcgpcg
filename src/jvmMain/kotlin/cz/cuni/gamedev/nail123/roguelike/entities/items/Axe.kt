@@ -4,6 +4,8 @@ import cz.cuni.gamedev.nail123.roguelike.entities.Player
 import cz.cuni.gamedev.nail123.roguelike.entities.attributes.HasInventory
 import cz.cuni.gamedev.nail123.roguelike.tiles.GameTiles
 
+
+//more power less hp
 class Axe(val attackPower: Int, val hitPoints: Int): Weapon(GameTiles.AXE) {
     override fun onEquip(character: HasInventory) {
         if (character is Player) {
